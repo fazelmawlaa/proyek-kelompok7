@@ -20,7 +20,7 @@ typedef struct {
 //fungsi cek dan buat folder
 void CekdanBuatFolder(const char *namaFolder) {
     // Mengecek apakah direktori sudah ada
-    #ifdef _WIN32
+    #ifdef _WIN32 //untuk windows
     if (_access(namaFolder, 0) == 0) {
         printf("Direktori '%s' sudah ada.\n", namaFolder);
     } else {
@@ -31,7 +31,7 @@ void CekdanBuatFolder(const char *namaFolder) {
             perror("Gagal membuat direktori");
         }
     }
-    #else
+    #else //untuk linux atau mac
         if (access(namaFolder, 0) == 0) {
         printf("Direktori '%s' sudah ada.\n", namaFolder);
     } else {
