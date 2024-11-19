@@ -11,16 +11,23 @@
     #include <sys/types.h> 
 #endif
 
-// Struktur untuk menyimpan data pengguna
+// Inisial untuk menyimpan data pengguna
 typedef struct {
-    char username[50];
-    char password[50];
+    char username[20];
+    char password[20];
 } User;
 
-//fungsi cek dan buat folder
+// Inisial untuk menyimpan data soal
+typedef struct {
+    char pertanyaan[200];
+    char pilihan[4][50];
+    char jawabanBenar;
+} Soal;
+
+// Fungsi cek dan buat folder
 void CekdanBuatFolder(const char *namaFolder) {
     // Mengecek apakah direktori sudah ada
-    #ifdef _WIN32 //untuk windows
+    #ifdef _WIN32 // Untuk windows
     if (_access(namaFolder, 0) == 0) {
         printf("Direktori '%s' sudah ada.\n", namaFolder);
     } else {
@@ -29,9 +36,10 @@ void CekdanBuatFolder(const char *namaFolder) {
             printf("Direktori '%s' berhasil dibuat.\n", namaFolder);
         } else {
             perror("Gagal membuat direktori");
+            exit(1);
         }
     }
-    #else //untuk linux atau mac
+    #else // Untuk linux atau mac
         if (access(namaFolder, 0) == 0) {
         printf("Direktori '%s' sudah ada.\n", namaFolder);
     } else {
@@ -40,8 +48,8 @@ void CekdanBuatFolder(const char *namaFolder) {
             printf("Direktori '%s' berhasil dibuat.\n", namaFolder);
         } else {
             perror("Gagal membuat direktori");
+            exit(1);
         }
     }
     #endif
-} 
-        
+}
