@@ -13,8 +13,8 @@
 
 // Inisial untuk menyimpan data pengguna
 typedef struct {
-    char username[50];
-    char password[50];
+    char username[20];
+    char password[20];
 } User;
 
 // Inisial untuk menyimpan data soal
@@ -24,10 +24,10 @@ typedef struct {
     char jawabanBenar;
 } Soal;
 
-//fungsi cek dan buat folder
+// Fungsi cek dan buat folder
 void CekdanBuatFolder(const char *namaFolder) {
     // Mengecek apakah direktori sudah ada
-    #ifdef _WIN32 //untuk windows
+    #ifdef _WIN32 // Untuk windows
     if (_access(namaFolder, 0) == 0) {
         printf("Direktori '%s' sudah ada.\n", namaFolder);
     } else {
@@ -39,7 +39,7 @@ void CekdanBuatFolder(const char *namaFolder) {
             exit(1);
         }
     }
-    #else //untuk linux atau mac
+    #else // Untuk linux atau mac
         if (access(namaFolder, 0) == 0) {
         printf("Direktori '%s' sudah ada.\n", namaFolder);
     } else {
@@ -60,4 +60,27 @@ void CekdanBuatFolder(const char *namaFolder) {
         exit(1);
     }
     fclose(file);
+}
+
+// Fungsi untuk registrasi pengguna
+void registrasiPengguna() {
+    User pengguna;
+    FILE *regis;
+
+    printf("===== Registrasi Pengguna =====\n");
+    printf("Masukkan nama pengguna: ");
+    scanf("%s", pengguna.username);
+    printf("Masukkan kata sandi: ");
+    scanf("%s", pengguna.password);
+
+    // Simpan data pengguna ke file biner
+    regis = fopen("database/login.bin", "ab");
+    if (regis == NULL) {
+        printf("Gagal membuka file untuk registrasi.\n");
+        exit(1);
+    }
+    fwrite(&pengguna, sizeof(User), 1, regis);
+    fclose(regis);
+
+    printf("Registrasi berhasil! Silakan login.\n");
 }
