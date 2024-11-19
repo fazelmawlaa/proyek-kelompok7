@@ -11,11 +11,18 @@
     #include <sys/types.h> 
 #endif
 
-// Struktur untuk menyimpan data pengguna
+// Inisial untuk menyimpan data pengguna
 typedef struct {
     char username[50];
     char password[50];
 } User;
+
+// Inisial untuk menyimpan data soal
+typedef struct {
+    char pertanyaan[200];
+    char pilihan[4][50];
+    char jawabanBenar;
+} Soal;
 
 //fungsi cek dan buat folder
 void CekdanBuatFolder(const char *namaFolder) {
@@ -29,6 +36,7 @@ void CekdanBuatFolder(const char *namaFolder) {
             printf("Direktori '%s' berhasil dibuat.\n", namaFolder);
         } else {
             perror("Gagal membuat direktori");
+            exit(1);
         }
     }
     #else //untuk linux atau mac
@@ -40,7 +48,16 @@ void CekdanBuatFolder(const char *namaFolder) {
             printf("Direktori '%s' berhasil dibuat.\n", namaFolder);
         } else {
             perror("Gagal membuat direktori");
+            exit(1);
         }
     }
     #endif
+    
+    // Membuat file login.bin jika belum ada
+    FILE *file = fopen("database/login.bin", "wb"); // "wb" membuat file jika belum ada
+    if (file == NULL) {
+        printf("Gagal membuat file login.bin.\n");
+        exit(1);
+    }
+    fclose(file);
 }
