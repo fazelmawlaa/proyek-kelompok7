@@ -52,4 +52,35 @@ void CekdanBuatFolder(const char *namaFolder) {
         }
     }
     #endif
+    
+// Membuat file login.bin jika belum ada
+    FILE *file = fopen("database/login.bin", "wb"); // "wb" membuat file jika belum ada
+    if (file == NULL) {
+        printf("Gagal membuat file login.bin.\n");
+        exit(1);
+    }
+    fclose(file);
+}
+
+// Fungsi untuk registrasi pengguna
+void registrasiPengguna() {
+    User pengguna;
+    FILE *regis;
+
+    printf("===== Registrasi Pengguna =====\n");
+    printf("Masukkan nama pengguna: ");
+    scanf("%s", pengguna.username);
+    printf("Masukkan kata sandi: ");
+    scanf("%s", pengguna.password);
+
+    // Simpan data pengguna ke file biner
+    regis = fopen("database/login.bin", "ab");
+    if (regis == NULL) {
+        printf("Gagal membuka file untuk registrasi.\n");
+        exit(1);
+    }
+    fwrite(&pengguna, sizeof(User), 1, regis);
+    fclose(regis);
+
+    printf("Registrasi berhasil! Silakan login.\n");
 }
