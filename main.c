@@ -132,17 +132,17 @@ void rules() {
         printf("Baik, terima kasih sudah berpartisipasi\n");
     }
 }
-
+// Fungsi untuk menjalankan kuis
 void mulaiKuis() {
-    int diff;
+int diff;
     int nilaiHadiah;
     printf("\n===============================\n");
     printf("    PILIH TINGKAT KESULITAN \n");
     printf("===============================\n");
-    printf("1. Easy\n");
-    printf("2. Normal\n");
-    printf("3. Hard\n");
-    printf("4. Very hard\n");
+    printf("1. Easy (Rp 500.000)\n");
+    printf("2. Normal (Rp 800.000)\n");
+    printf("3. Hard (Rp 1.000.000)\n");
+    printf("4. Very hard (2.000.000)\n");
 
     // Validasi input tingkat kesulitan
     while (1) {
@@ -152,15 +152,15 @@ void mulaiKuis() {
         printf("Input tidak valid, coba lagi.\n");
         getchar();
     } 
-    
+   // Pertanyaan berdasarkan tingkat kesulitan
     if (diff == 1) {
-        nilaiHadiah = 100000;
+        nilaiHadiah = 100;
         printf("\n===============================\n");
         printf("          Game Dimulai\n");
         printf("===============================\n");
         Soal kuisEasy[] = {
            {"Planet terbesar di tata surya adalah?", {"Bumi", "Mars", "Jupiter", "Saturnus"}, 'C'},
-           {"Ibukota Indonesia adalah?", {"Jakarta", "Surabaya", "Bali", "Medan"}, 'A'},
+           {"Berapakah 5 + 5 x 5 + 5 ?", {"55", "35", "75", "100"}, 'B'},
            {"Hewan tercepat di dunia adalah?", {"Cheetah", "Elang", "Ikan Todak", "Kuda"}, 'A'},
            {"Unsur kimia dengan simbol H adalah?", {"Helium", "Hidrogen", "Hidroksida", "Helios"}, 'B'},
            {"Penemu lampu pijar adalah?", {"Albert Einstein", "Nikola Tesla", "Thomas Edison", "Isaac Newton"}, 'C'}
@@ -168,7 +168,7 @@ void mulaiKuis() {
         skorKuis(kuisEasy, sizeof(kuisEasy) / sizeof(kuisEasy[0]), nilaiHadiah);
 
     } else if (diff == 2) {
-        nilaiHadiah = 200000;
+        nilaiHadiah = 160;
         printf("\n===============================\n");
         printf("          Game Dimulai\n");
         printf("===============================\n");
@@ -182,7 +182,7 @@ void mulaiKuis() {
         skorKuis(kuisMedium, sizeof(kuisMedium) / sizeof(kuisMedium[0]), nilaiHadiah);
     }
     else if (diff == 3) {
-        nilaiHadiah = 400000;
+        nilaiHadiah = 200;
         printf("\n===============================\n");
         printf("          Game Dimulai\n");
         printf("===============================\n");
@@ -191,12 +191,12 @@ void mulaiKuis() {
             {"The Harbour City (Kota Dermaga) adalah julukan untuk kota ?", {"Perth", "Melbourne", "Hobart", "Sidney"}, 'D'},
             {"Ibukota Kanada adalah?", {"Toronto", "Vancouver", "Ottawa", "Montreal"}, 'C'},
             {"Siapa penemu teori relativitas?", {"Isaac Newton", "Albert Einstein", "Galileo Galilei", "Marie Curie"}, 'B'},
-            {"Negara yang beribukota Lome adalah?", {"Cameroon", "Burundi", "Togo", "Nigeria"}, 'C'},
+           {"Berapakah 2/9 x 27/8 ?", {"4/3", "3/4", "3", "4"}, 'B'}
         };
         skorKuis(kuisHard, sizeof(kuisHard) / sizeof(kuisHard[0]), nilaiHadiah);
 
     } else if (diff == 4) {
-        nilaiHadiah = 800000;
+        nilaiHadiah = 400;
         printf("\n===============================\n");
         printf("          Game Dimulai\n");
         printf("===============================\n");;
@@ -204,7 +204,7 @@ void mulaiKuis() {
             {"Zat yang digunakan pada AC untuk mendinginkan udara adalah?", {"Kondensor", "Kapiler", "Freon", "Evaporator"}, 'C'},
             {"Kerbau kecil di pedalaman Sulawesi ", {"Surti", "Murrah", "Rawa", "Anoa"}, 'D'},
             {"Tongkat Biliard biasa disebut dengan?", {"Glove", "Trip Tool", "Kiu", "Cue"}, 'D'},
-            {"Teks yang tertulis dalam kode rahasia  adalah?", {"Kriptografi", "Kriptometri", "Kriptogram", "Password"}, 'C'},
+            {"Berapakah 1/4 + 1/5 + 1/6 ?", {"3/15", "3/120", "37/60", "Tidak ada"}, 'C'},
             {"Alat untuk mengukur penguapan udara?", {"Barometer", "Atmometer", "Hygrometer", "Mikrometer"}, 'B'}
         };
         skorKuis(kuisVeryHard, sizeof(kuisVeryHard) / sizeof(kuisVeryHard[0]), nilaiHadiah);
