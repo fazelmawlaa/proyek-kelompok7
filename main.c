@@ -85,6 +85,28 @@ void registrasiPengguna() {
     printf("Registrasi berhasil! Silakan login.\n");
 }
 
+// Fungsi untuk login pengguna
+int login(const char *username, const char *password) {
+    User pengguna;
+    FILE *login;
+
+    // Baca data pengguna dari file biner
+    login = fopen("database/login.bin", "rb");
+    if (login == NULL) {
+        printf("File login tidak ditemukan! Silakan registrasi terlebih dahulu.\n");
+        exit(1);
+    }
+
+    while (fread(&pengguna, sizeof(User), 1, login)) {
+        if (strcmp(pengguna.username, username) == 0 && strcmp(pengguna.password, password) == 0) {
+            fclose(login);
+            return 1; // Login berhasil
+        }
+    }
+    fclose(login);
+    return 0; // Login gagal
+}
+
 void rules() {
     int rule;
 
