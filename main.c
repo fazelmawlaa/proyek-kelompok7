@@ -158,12 +158,12 @@ int diff;
         printf("\n===============================\n");
         printf("          Game Dimulai\n");
         printf("===============================\n");
-        Soal kuisEasy[] = {
-           {"Planet terbesar di tata surya adalah?", {"Bumi", "Mars", "Jupiter", "Saturnus"}, 'C'},
-           {"Berapakah 5 + 5 x 5 + 5 ?", {"55", "35", "75", "100"}, 'B'},
-           {"Hewan tercepat di dunia adalah?", {"Cheetah", "Elang", "Ikan Todak", "Kuda"}, 'A'},
-           {"Unsur kimia dengan simbol H adalah?", {"Helium", "Hidrogen", "Hidroksida", "Helios"}, 'B'},
-           {"Penemu lampu pijar adalah?", {"Albert Einstein", "Nikola Tesla", "Thomas Edison", "Isaac Newton"}, 'C'}
+       Soal kuisEasy[] = {
+            {"Gunung tertinggi di dunia adalah?", {"Gunung Everest", "Gunung Kilimanjaro", "Gunung Elbrus", "Gunung Denali"}, 'A'},
+            {"2 x 3 + 4 x 5 = ?", {"26", "28", "20", "30"}, 'A'},
+            {"Laut terdalam di dunia adalah?", {"Laut Merah", "Samudra Pasifik", "Laut Karibia", "Palung Mariana"}, 'D'},
+            {"Nama samudra terkecil di dunia adalah?", {"Samudra Pasifik", "Samudra Hindia", "Samudra Arktik", "Samudra Atlantik"}, 'C'},
+            {"Manusia tercepat di dunia adalah?", {"Usain Bolt", "Mo Farah", "Michael Phelps", "Carl Lewis"}, 'A'}
         };
         skorKuis(kuisEasy, sizeof(kuisEasy) / sizeof(kuisEasy[0]), nilaiHadiah);
 
