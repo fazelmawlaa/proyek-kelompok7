@@ -176,8 +176,8 @@ int diff;
             {"Berapa jumlah provinsi di Indonesia saat ini?", {"38", "37", "36", "34"}, 'A'},
             {"Pulau terbesar di dunia adalah?", {"Greenland", "Kalimantan", "Madagaskar", "Australia"}, 'A'},
             {"24 tahun sama dengan ?", {"Abad", "Windu", "Dasawarsa", "Triwindu"}, 'D'},
-            {"Apa nama molekul DNA lengkap?", {"Asam Deoksiribonukleat", "Asam Ribonukleat", "Asam Nukleat", "Asam Fosfat"}, 'A'},
-            {"Laut terdalam di dunia adalah?", {"Samudra Hindia", "Palung Mariana", "Samudra Pasifik", "Palung Puerto Rico"}, 'B'}
+            {"Berapakah 4/2 + 8/4?", {"4", "3", "2", "5"}, 'A'},
+            {"Berapakah jumlah kotak-kotak tempat bidak pada papan catur?", {"32", "64", "48", "72"}, 'B'}
         };
         skorKuis(kuisMedium, sizeof(kuisMedium) / sizeof(kuisMedium[0]), nilaiHadiah);
     }
