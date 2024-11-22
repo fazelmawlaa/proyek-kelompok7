@@ -68,9 +68,9 @@ void registrasiPengguna() {
     FILE *regis;
 
     printf("===== Registrasi Pengguna =====\n");
-    printf("Masukkan nama pengguna: ");
+    printf("Masukkan nama pengguna : ");
     scanf("%s", pengguna.username);
-    printf("Masukkan kata sandi: ");
+    printf("Masukkan kata sandi    : ");
     scanf("%s", pengguna.password);
 
     // Simpan data pengguna ke file biner
@@ -107,32 +107,45 @@ int login(const char *username, const char *password) {
     return 0; // Login gagal
 }
 
-void rules() {
-    int rule;
+// Fungsi untuk menjalankan sistem (program) kuis
+void jalankanKuis(Soal *kuis, int jumlahSoal, int nilaiHadiah) {
+    float uang = 0;
+    char jawaban;
+    char konfirmasi;
 
-    printf("\n===================================================\n");
-    printf("      SELAMAT DATANG DI GAME BRAIN BILLIONARE       \n");
-    printf("===================================================\n");
+    for (int i = 0; i < jumlahSoal; i++) {
+        printf("%d. %s\n", i + 1, kuis[i].pertanyaan);
+        printf("A. %s\nB. %s\nC. %s\nD. %s\n", kuis[i].pilihan[0], kuis[i].pilihan[1], kuis[i].pilihan[2], kuis[i].pilihan[3]);
+        printf("Jawaban Anda: ");
+        scanf(" %c", &jawaban);
 
-    printf("Peraturan permainan: \n");
-    printf("1. Terdapat 5 soal yang jumlah hadiahnya berbeda tergantung tingkat kesulitan.\n");
-    printf("2. Tingkat kesulitan dan prizepool:\n");
-    printf("   Easy\t\tRp 500.000\n");
-    printf("   Normal\tRp 800.000\n");
-    printf("   Hard\t\tRp 1.000.000\n");
-    printf("   Very Hard\tRp 2.000.000\n");
-    printf("3. Game akan berakhir jika soal dijawab salah dan uang yang anda kumpulkan akan hangus.\n");
-    printf("\nApakah Anda ingin memulai permainan?\n");
-    printf("1. GAZZZ\n2. SKIP DULU DEH\n\nJawaban Anda: ");
-    scanf("%d", &rule);
+        if (jawaban == kuis[i].jawabanBenar || jawaban == kuis[i].jawabanBenar + 32) {
+            uang += nilaiHadiah;
+            printf("Jawaban benar! Uang Anda sekarang: Rp %.3f\n\n", uang);
 
-    if (rule == 1) {
-        mulaiKuis();
-    } else {
-        printf("Baik, terima kasih sudah berpartisipasi\n");
+            // Jika ini bukan pertanyaan terakhir, tanyakan konfirmasi
+            if (i < jumlahSoal - 1) {
+                printf("Apakah Anda ingin melanjutkan ke pertanyaan berikutnya? (Y/N): ");
+                scanf(" %c", &konfirmasi);
+
+                // Tambahkan baris kosong sebelum pertanyaan berikutnya
+                if (konfirmasi == 'Y' || konfirmasi == 'y') {
+                    printf("\n");
+                } else if (konfirmasi == 'N' || konfirmasi == 'n') {
+                    printf("\nPermainan selesai. Uang yang Anda dapatkan: Rp %.3f\n", uang);
+                    return;
+                }
+            }
+        } else {
+            printf("\nJawaban salah! Permainan selesai. Uang anda telah hangus.\n");
+            return;
+        }
     }
+    printf("\nSelamat! Anda berhasil menyelesaikan kuis dan mendapatkan uang senilai: Rp %.3f\n", uang);
 }
-// Fungsi untuk menjalankan kuis
+
+
+// Fungsi untuk memulai kuis
 void mulaiKuis() {
 int diff;
     int nilaiHadiah;
@@ -165,7 +178,7 @@ int diff;
             {"Nama samudra terkecil di dunia adalah?", {"Samudra Pasifik", "Samudra Hindia", "Samudra Arktik", "Samudra Atlantik"}, 'C'},
             {"Manusia tercepat di dunia adalah?", {"Usain Bolt", "Mo Farah", "Michael Phelps", "Carl Lewis"}, 'A'}
         };
-        skorKuis(kuisEasy, sizeof(kuisEasy) / sizeof(kuisEasy[0]), nilaiHadiah);
+        jalankanKuis(kuisEasy, sizeof(kuisEasy) / sizeof(kuisEasy[0]), nilaiHadiah);
 
     } else if (diff == 2) {
         nilaiHadiah = 160;
@@ -179,7 +192,7 @@ int diff;
             {"Berapakah 4/2 + 8/4?", {"4", "3", "2", "5"}, 'A'},
             {"Berapakah jumlah kotak-kotak tempat bidak pada papan catur?", {"32", "64", "48", "72"}, 'B'}
         };
-        skorKuis(kuisMedium, sizeof(kuisMedium) / sizeof(kuisMedium[0]), nilaiHadiah);
+        jalankanKuis(kuisMedium, sizeof(kuisMedium) / sizeof(kuisMedium[0]), nilaiHadiah);
     }
     else if (diff == 3) {
         nilaiHadiah = 200;
@@ -193,7 +206,7 @@ int diff;
             {"Siapa penemu teori relativitas?", {"Isaac Newton", "Albert Einstein", "Galileo Galilei", "Marie Curie"}, 'B'},
            {"Berapakah 2/9 x 27/8 ?", {"4/3", "3/4", "3", "4"}, 'B'}
         };
-        skorKuis(kuisHard, sizeof(kuisHard) / sizeof(kuisHard[0]), nilaiHadiah);
+        jalankanKuis(kuisHard, sizeof(kuisHard) / sizeof(kuisHard[0]), nilaiHadiah);
 
     } else if (diff == 4) {
         nilaiHadiah = 400;
@@ -207,9 +220,39 @@ int diff;
             {"Berapakah 1/4 + 1/5 + 1/6 ?", {"3/15", "3/120", "37/60", "Tidak ada"}, 'C'},
             {"Alat untuk mengukur penguapan udara?", {"Barometer", "Atmometer", "Hygrometer", "Mikrometer"}, 'B'}
         };
-        skorKuis(kuisVeryHard, sizeof(kuisVeryHard) / sizeof(kuisVeryHard[0]), nilaiHadiah);
+        jalankanKuis(kuisVeryHard, sizeof(kuisVeryHard) / sizeof(kuisVeryHard[0]), nilaiHadiah);
     }
 }
+
+
+// Fungsi untuk menampilkan peraturan
+void rules() {
+    int rule;
+
+    printf("\n===================================================\n");
+    printf("      SELAMAT DATANG DI GAME BRAIN BILLIONARE       \n");
+    printf("===================================================\n");
+
+    printf("Peraturan permainan: \n");
+    printf("1. Terdapat 5 soal yang jumlah hadiahnya berbeda tergantung tingkat kesulitan.\n");
+    printf("2. Tingkat kesulitan dan prizepool:\n");
+    printf("   Easy\t\tRp 500.000\n");
+    printf("   Normal\tRp 800.000\n");
+    printf("   Hard\t\tRp 1.000.000\n");
+    printf("   Very Hard\tRp 2.000.000\n");
+    printf("3. Game akan berakhir jika soal dijawab salah dan uang yang anda kumpulkan akan hangus.\n");
+    printf("\nApakah Anda ingin memulai permainan?\n");
+    printf("1. GAZZZ\n2. SKIP DULU DEH\n\nJawaban Anda: ");
+    scanf("%d", &rule);
+
+    if (rule == 1) {
+        mulaiKuis();
+    } else {
+        printf("Baik, terima kasih sudah berpartisipasi\n");
+    }
+}
+
+
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
@@ -224,7 +267,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (strcmp(argv[1], "register") == 0) {
-        regis();
+        registrasiPengguna();
         return 0;
     }
 
