@@ -133,6 +133,84 @@ void rules() {
     }
 }
 
+void mulaiKuis() {
+    int diff;
+    int nilaiHadiah;
+    printf("\n===============================\n");
+    printf("    PILIH TINGKAT KESULITAN \n");
+    printf("===============================\n");
+    printf("1. Easy\n");
+    printf("2. Normal\n");
+    printf("3. Hard\n");
+    printf("4. Very hard\n");
+
+    // Validasi input tingkat kesulitan
+    while (1) {
+        printf("Silahkan pilih tingkat kesulitan (1-4): ");
+        scanf("%d", &diff);
+        if (diff >= 1 && diff <= 4) break;
+        printf("Input tidak valid, coba lagi.\n");
+        getchar();
+    } 
+    
+    if (diff == 1) {
+        nilaiHadiah = 100000;
+        printf("\n===============================\n");
+        printf("          Game Dimulai\n");
+        printf("===============================\n");
+        Soal kuisEasy[] = {
+           {"Planet terbesar di tata surya adalah?", {"Bumi", "Mars", "Jupiter", "Saturnus"}, 'C'},
+           {"Ibukota Indonesia adalah?", {"Jakarta", "Surabaya", "Bali", "Medan"}, 'A'},
+           {"Hewan tercepat di dunia adalah?", {"Cheetah", "Elang", "Ikan Todak", "Kuda"}, 'A'},
+           {"Unsur kimia dengan simbol H adalah?", {"Helium", "Hidrogen", "Hidroksida", "Helios"}, 'B'},
+           {"Penemu lampu pijar adalah?", {"Albert Einstein", "Nikola Tesla", "Thomas Edison", "Isaac Newton"}, 'C'}
+        };
+        skorKuis(kuisEasy, sizeof(kuisEasy) / sizeof(kuisEasy[0]), nilaiHadiah);
+
+    } else if (diff == 2) {
+        nilaiHadiah = 200000;
+        printf("\n===============================\n");
+        printf("          Game Dimulai\n");
+        printf("===============================\n");
+        Soal kuisMedium[] = {
+            {"Berapa jumlah provinsi di Indonesia saat ini?", {"38", "37", "36", "34"}, 'A'},
+            {"Pulau terbesar di dunia adalah?", {"Greenland", "Kalimantan", "Madagaskar", "Australia"}, 'A'},
+            {"24 tahun sama dengan ?", {"Abad", "Windu", "Dasawarsa", "Triwindu"}, 'D'},
+            {"Apa nama molekul DNA lengkap?", {"Asam Deoksiribonukleat", "Asam Ribonukleat", "Asam Nukleat", "Asam Fosfat"}, 'A'},
+            {"Laut terdalam di dunia adalah?", {"Samudra Hindia", "Palung Mariana", "Samudra Pasifik", "Palung Puerto Rico"}, 'B'}
+        };
+        skorKuis(kuisMedium, sizeof(kuisMedium) / sizeof(kuisMedium[0]), nilaiHadiah);
+    }
+    else if (diff == 3) {
+        nilaiHadiah = 400000;
+        printf("\n===============================\n");
+        printf("          Game Dimulai\n");
+        printf("===============================\n");
+        Soal kuisHard[] = {
+           {"Apa nama gas mulia terberat?", {"Neon", "Krypton", "Xenon", "Radon"}, 'D'},
+            {"The Harbour City (Kota Dermaga) adalah julukan untuk kota ?", {"Perth", "Melbourne", "Hobart", "Sidney"}, 'D'},
+            {"Ibukota Kanada adalah?", {"Toronto", "Vancouver", "Ottawa", "Montreal"}, 'C'},
+            {"Siapa penemu teori relativitas?", {"Isaac Newton", "Albert Einstein", "Galileo Galilei", "Marie Curie"}, 'B'},
+            {"Negara yang beribukota Lome adalah?", {"Cameroon", "Burundi", "Togo", "Nigeria"}, 'C'},
+        };
+        skorKuis(kuisHard, sizeof(kuisHard) / sizeof(kuisHard[0]), nilaiHadiah);
+
+    } else if (diff == 4) {
+        nilaiHadiah = 800000;
+        printf("\n===============================\n");
+        printf("          Game Dimulai\n");
+        printf("===============================\n");;
+        Soal kuisVeryHard[] = {
+            {"Zat yang digunakan pada AC untuk mendinginkan udara adalah?", {"Kondensor", "Kapiler", "Freon", "Evaporator"}, 'C'},
+            {"Kerbau kecil di pedalaman Sulawesi ", {"Surti", "Murrah", "Rawa", "Anoa"}, 'D'},
+            {"Tongkat Biliard biasa disebut dengan?", {"Glove", "Trip Tool", "Kiu", "Cue"}, 'D'},
+            {"Teks yang tertulis dalam kode rahasia  adalah?", {"Kriptografi", "Kriptometri", "Kriptogram", "Password"}, 'C'},
+            {"Alat untuk mengukur penguapan udara?", {"Barometer", "Atmometer", "Hygrometer", "Mikrometer"}, 'B'}
+        };
+        skorKuis(kuisVeryHard, sizeof(kuisVeryHard) / sizeof(kuisVeryHard[0]), nilaiHadiah);
+    }
+}
+
 int main(int argc, char *argv[]) {
     if (argc < 2) {
         CekdanBuatFolder("database");
