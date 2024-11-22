@@ -132,3 +132,37 @@ void rules() {
         printf("Baik, terima kasih sudah berpartisipasi\n");
     }
 }
+
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        CekdanBuatFolder("database");
+        printf("================================================\n");
+        printf("    Selamat datang di Game Brain Billionare!\n");
+        printf("================================================\n");
+        printf("Cara memulai permainan:\n");
+        printf("- Registrasi: ./namaProgram register\n");
+        printf("- Login: ./namaProgram login username password\n");
+        return 1;
+    }
+
+    if (strcmp(argv[1], "register") == 0) {
+        regis();
+        return 0;
+    }
+
+    if (argc == 4 && strcmp(argv[1], "login") == 0) {
+        const char *username = argv[2];
+        const char *password = argv[3];
+
+        if (login(username, password)) {
+            printf("Login berhasil! Selamat datang %s!\n", username);
+            rules();
+        
+        } else {
+            printf("Login gagal! Nama pengguna atau kata sandi salah.\n");
+            printf("Cara penggunaan: ./namaProgram login username password\n");
+            return 1;
+        }
+    }
+    return 1;
+}
