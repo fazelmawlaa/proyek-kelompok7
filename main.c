@@ -174,7 +174,7 @@ int diff;
        Soal kuisEasy[] = {
             {"Gunung tertinggi di dunia adalah?", {"Gunung Everest", "Gunung Kilimanjaro", "Gunung Elbrus", "Gunung Denali"}, 'A'},
             {"2 x 3 + 4 x 5 = ?", {"26", "28", "20", "30"}, 'A'},
-            {"Laut terdalam di dunia adalah?", {"Laut Merah", "Samudra Pasifik", "Laut Karibia", "Palung Mariana"}, 'D'},
+            {"Palung terdalam di dunia adalah?", {"Palung Weber", "Palung Tonga", "Palung Filipina", "Palung Mariana"}, 'D'},
             {"Nama samudra terkecil di dunia adalah?", {"Samudra Pasifik", "Samudra Hindia", "Samudra Arktik", "Samudra Atlantik"}, 'C'},
             {"Manusia tercepat di dunia adalah?", {"Usain Bolt", "Mo Farah", "Michael Phelps", "Carl Lewis"}, 'A'}
         };
@@ -186,11 +186,11 @@ int diff;
         printf("          Game Dimulai\n");
         printf("===============================\n");
         Soal kuisMedium[] = {
-            {"Berapa jumlah provinsi di Indonesia saat ini?", {"38", "37", "36", "34"}, 'A'},
+            {"Siapa penemu teori relativitas?", {"Isaac Newton", "Albert Einstein", "Galileo Galilei", "Marie Curie"}, 'B'},
             {"Pulau terbesar di dunia adalah?", {"Greenland", "Kalimantan", "Madagaskar", "Australia"}, 'A'},
-            {"24 tahun sama dengan ?", {"Abad", "Windu", "Dasawarsa", "Triwindu"}, 'D'},
+            {"10 tahun sama dengan satu...?", {"Abad", "Windu", "Dasawarsa", "Triwindu"}, 'C'},
             {"Berapakah 4/2 + 8/4?", {"4", "3", "2", "5"}, 'A'},
-            {"Berapakah jumlah kotak-kotak tempat bidak pada papan catur?", {"32", "64", "48", "72"}, 'B'}
+            {"Siapa presiden yang mampu menekan nilai dollar dari Rp 16.500 menjadi 6.500?", {"Soekarno", "Megawati", "Donald Trump", "BJ Habibie"}, 'D'}
         };
         jalankanKuis(kuisMedium, sizeof(kuisMedium) / sizeof(kuisMedium[0]), nilaiHadiah);
     }
@@ -200,10 +200,10 @@ int diff;
         printf("          Game Dimulai\n");
         printf("===============================\n");
         Soal kuisHard[] = {
-           {"Apa nama gas mulia terberat?", {"Neon", "Krypton", "Xenon", "Radon"}, 'D'},
-            {"The Harbour City (Kota Dermaga) adalah julukan untuk kota ?", {"Perth", "Melbourne", "Hobart", "Sidney"}, 'D'},
-            {"Ibukota Kanada adalah?", {"Toronto", "Vancouver", "Ottawa", "Montreal"}, 'C'},
-            {"Siapa penemu teori relativitas?", {"Isaac Newton", "Albert Einstein", "Galileo Galilei", "Marie Curie"}, 'B'},
+           {"Zat yang digunakan pada AC untuk mendinginkan udara adalah?", {"Kondensor", "Kapiler", "Freon", "Evaporator"}, 'C'},
+           {"The Harbour City (Kota Dermaga) adalah julukan untuk kota ?", {"Perth", "Melbourne", "Hobart", "Sidney"}, 'D'},
+           {"Ibukota Kanada adalah?", {"Toronto", "Vancouver", "Ottawa", "Montreal"}, 'C'},
+           {"Siapa yang berhak mengeluarkan Perppu di Indonesia?", {"Presiden" , "Mahkamah Konstitusi", "DPR", "KPK"}, 'A'},
            {"Berapakah 2/9 x 27/8 ?", {"4/3", "3/4", "3", "4"}, 'B'}
         };
         jalankanKuis(kuisHard, sizeof(kuisHard) / sizeof(kuisHard[0]), nilaiHadiah);
@@ -214,10 +214,10 @@ int diff;
         printf("          Game Dimulai\n");
         printf("===============================\n");;
         Soal kuisVeryHard[] = {
-            {"Zat yang digunakan pada AC untuk mendinginkan udara adalah?", {"Kondensor", "Kapiler", "Freon", "Evaporator"}, 'C'},
-            {"Kerbau kecil di pedalaman Sulawesi ", {"Surti", "Murrah", "Rawa", "Anoa"}, 'D'},
+            {"Pemenang FIFA World Cup tahun 2010 berasal dari negara?", {"Spanyol", "Brazil", "Jerman", "Indonesia"}, 'A'},
+            {"Kerbau kecil yang terdapat di pedalaman Sulawesi disebut?", {"Surti", "Murrah", "Rawa", "Anoa"}, 'D'},
             {"Tongkat Biliard biasa disebut dengan?", {"Glove", "Trip Tool", "Kiu", "Cue"}, 'D'},
-            {"Berapakah 1/4 + 1/5 + 1/6 ?", {"3/15", "3/120", "37/60", "Tidak ada"}, 'C'},
+            {"Berapakah 1/4 + 1/5 + 1/6 ?", {"3/15", "3/120", "37/60", "42/60"}, 'C'},
             {"Alat untuk mengukur penguapan udara?", {"Barometer", "Atmometer", "Hygrometer", "Mikrometer"}, 'B'}
         };
         jalankanKuis(kuisVeryHard, sizeof(kuisVeryHard) / sizeof(kuisVeryHard[0]), nilaiHadiah);
