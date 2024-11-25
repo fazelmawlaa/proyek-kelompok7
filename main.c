@@ -129,16 +129,25 @@ void jalankanKuis(Soal *kuis, int jumlahSoal, int nilaiHadiah) {
                 printf("Apakah Anda ingin melanjutkan ke pertanyaan berikutnya? (Y/N): ");
                 scanf(" %c", &konfirmasi);
 
+ // Jika ini bukan pertanyaan terakhir, tanyakan konfirmasi
+            if (i < jumlahSoal - 1) {
+                 while (status == 'L') {
+                printf("Apakah Anda ingin melanjutkan ke pertanyaan berikutnya? (Y/N): ");
+                scanf(" %c", &konfirmasi);
+
+               
                 // Tambahkan baris kosong sebelum pertanyaan berikutnya
                 if (konfirmasi == 'Y' || konfirmasi == 'y') {
+                    status = 'T';
                     printf("\n");
                 } else if (konfirmasi == 'N' || konfirmasi == 'n') {
                     printf("\nPermainan selesai. Uang yang Anda dapatkan: Rp %.3f\n", uang);
                     return;
-                }else{
-                     printf("\nPermainan selesai. Uang yang Anda dapatkan: Rp %.3f\n", uang);
-                    return;
+                } else {
+                 printf("Inputtan tidak Valid. Coba lagi\n\n");
+                     }
                 }
+            }
             }
         } else {
             printf("\nJawaban salah! Permainan selesai. Uang anda telah hangus.\n");
