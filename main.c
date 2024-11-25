@@ -113,6 +113,7 @@ void jalankanKuis(Soal *kuis, int jumlahSoal, int nilaiHadiah) {
     float uang = 0;
     char jawaban;
     char konfirmasi;
+    char status = 'L' ;
 
     for (int i = 0; i < jumlahSoal; i++) {
         printf("%d. %s\n", i + 1, kuis[i].pertanyaan);
