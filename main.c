@@ -135,6 +135,9 @@ void jalankanKuis(Soal *kuis, int jumlahSoal, int nilaiHadiah) {
                 } else if (konfirmasi == 'N' || konfirmasi == 'n') {
                     printf("\nPermainan selesai. Uang yang Anda dapatkan: Rp %.3f\n", uang);
                     return;
+                }else{
+                     printf("\nPermainan selesai. Uang yang Anda dapatkan: Rp %.3f\n", uang);
+                    return;
                 }
             }
         } else {
